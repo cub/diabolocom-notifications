@@ -8,7 +8,7 @@
             <RouterLink to="/"> Home </RouterLink>
           </li>
           <li>
-            <RouterLink to="/about"> About </RouterLink>
+            <RouterLink to="/notifications"> Notifications </RouterLink>
           </li>
         </ul>
       </nav>
