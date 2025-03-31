@@ -11,7 +11,19 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,js,vue}": [
+      "prettier --write",
+      "eslint --fix",
+      "stylelint --fix --custom-syntax postcss-html"
+    ],
+    "*.css": [
+      "prettier --write",
+      "stylelint --fix"
+    ]
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.17",
@@ -31,9 +43,14 @@
     "eslint": "^9.21.0",
     "eslint-plugin-playwright": "^2.2.0",
     "eslint-plugin-vue": "~10.0.0",
+    "husky": "^9.1.7",
     "jiti": "^2.4.2",
+    "lint-staged": "^15.5.0",
     "npm-run-all2": "^7.0.2",
-    "prettier": "3.5.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "stylelint": "^16.17.0",
+    "stylelint-config-standard": "^37.0.0",
     "typescript": "~5.8.0",
     "vite": "^6.2.1",
     "vite-plugin-vue-devtools": "^7.7.2",
