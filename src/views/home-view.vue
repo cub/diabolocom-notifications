@@ -10,6 +10,7 @@
         <span class="badge badge-neutral">2025/03/31 20h~21h</span> daisy ui + store + form
         notification
       </li>
+      <li><span class="badge badge-neutral">2025/04/01 13h~14h</span> notifications list</li>
     </ul>
   </div>
 </template>
