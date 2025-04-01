@@ -59,12 +59,14 @@ const content = ref('')
 
 function addNotification() {
   if (title.value && content.value) {
+    // push new notif, uuid and state set automatically
     notificationsStore.addNotification({
       title: title.value,
       type: type.value,
       content: content.value,
       namespace: namespace.value,
     })
+    // reset form
     namespace.value = NotificationNamespace.Basic
     title.value = ''
     type.value = NotificationType.Info
