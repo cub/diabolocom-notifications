@@ -21,6 +21,18 @@
         <span class="badge badge-neutral">2025/04/02 13h~14h</span> defineCustomElement export +
         build config
       </li>
+      <li>
+        <span class="badge badge-neutral">2025/04/02 18h~19h</span> e2e test + documentation
+        README.md
+      </li>
+    </ul>
+
+    <h2 class="mb-2 text-xl">TODOs / Improvements</h2>
+    <ul class="flex list-inside list-disc flex-col gap-2">
+      <li>Remove DaisyUI to lighten the package output</li>
+      <li>Do e2e on CustomElement</li>
+      <li>Fix a11y issues (colors, ...)</li>
+      <li>Fix responsive design</li>
     </ul>
   </div>
 </template>

@@ -1,58 +1,45 @@
 # diabolocom-notifications
 
-This template should help get you started developing with Vue 3 in Vite.
+## Environments
+Depending on whether you want to develop in Vue or build the web components, there are two different environments:
+- **[Vue Development]**: `main.spa.ts` and `index.spa.html`
+- **[Web Component]**: `main.ce.ts` and `index.ce.html`
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+To easily switch between these two environments, use the following commands:
 
 ```sh
-npm install
+npm run setup:ce  # Switch to Web Component environment
+npm run setup:spa # Switch to Vue Development environment
 ```
 
-### Compile and Hot-Reload for Development
-
+### Running Vue Development Mode
 ```sh
+npm run setup:spa
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
-
+### Building Web Components
 ```sh
+npm run setup:ce
 npm run build
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+Once built, the `dist` directory contains an `index.html` page demonstrating how to include and use the generated JS and CSS files.
 
-```sh
-# Install browsers for the first run
-npx playwright install
+All three components share a common Pinia store instance.
 
-# When testing on CI, must build the project first
-npm run build
+TailwindCSS is not scoped to individual components (no Shadow DOM) to maintain the utility of atomic classes. However, if your project already uses/includes TailwindCSS v4, you may not need to include the built CSS to avoid redundancy and conflicts. **That said, this is not entirely true due to the current dependency on DaisyUI, which remains necessary for proper styling.**
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+## Exported Web Components
 
-### Lint with [ESLint](https://eslint.org/)
+### `<notifications-form-add-element>`
+The form for adding new notification.
 
-```sh
-npm run lint
-```
+### `<notifications-widget-unread-element>`
+A small widget displaying the number of unread notifications.
+The `namespace` prop are required.
+
+### `<notifications-list-manage-element>`
+A notification list and manager component. Allows marking notifications as read or unread and deleting them.
+The `namespace` prop are required.
+
