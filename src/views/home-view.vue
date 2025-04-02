@@ -17,6 +17,10 @@
         <span class="badge badge-neutral">2025/04/01 20h~23h</span> localStorage sync + WIP
         defineCustomElement
       </li>
+      <li>
+        <span class="badge badge-neutral">2025/04/02 13h~14h</span> defineCustomElement export +
+        build config
+      </li>
     </ul>
   </div>
 </template>
