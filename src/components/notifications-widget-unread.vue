@@ -16,12 +16,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { NotificationState, useNotificationsStore } from '@/stores/notifications'
+import { computed, type PropType } from 'vue'
+import {
+  NotificationNamespace,
+  NotificationState,
+  useNotificationsStore,
+} from '@/stores/notifications'
 const notificationsStore = useNotificationsStore()
 
+const props = defineProps({
+  namespace: {
+    type: String as PropType<NotificationNamespace>,
+    required: true,
+  },
+})
+
 const notificationsUnread = computed(() => {
-  return notificationsStore.notificationsByNamespace.filter((n) => {
+  return notificationsStore.getNotificationsByNamespace(props.namespace).filter((n) => {
     return n.state === NotificationState.Unread
   })
 })

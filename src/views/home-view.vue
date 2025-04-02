@@ -3,7 +3,7 @@
     <h1 class="mb-4 text-3xl">Home page</h1>
 
     <h2 class="mb-2 text-xl">Widget</h2>
-    <NotificationsWidgetUnread class="mb-4" />
+    <NotificationsWidgetUnread :namespace="notificationsStore.namespace" class="mb-4" />
 
     <h2 class="mb-2 text-xl">Changelog</h2>
     <ul class="mb-4 flex list-inside list-disc flex-col gap-2 font-mono">
@@ -22,4 +22,6 @@
 </template>
 <script setup lang="ts">
 import NotificationsWidgetUnread from '@/components/notifications-widget-unread.vue'
+import { useNotificationsStore } from '@/stores/notifications'
+const notificationsStore = useNotificationsStore()
 </script>

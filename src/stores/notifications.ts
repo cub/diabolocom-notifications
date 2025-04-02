@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -32,15 +32,15 @@ export const useNotificationsStore = defineStore('notifications', () => {
   const notifications = ref([] as Notification[])
   const namespace = ref(NotificationNamespace.Basic)
 
-  const notificationsByNamespace = computed(() => {
-    return notifications.value.filter((n) => {
-      return n.namespace === namespace.value
-    })
-  })
-
   function addNotification(notification: Omit<Notification, 'id' | 'state'>) {
     notifications.value.push({ ...notification, id: uuidv4(), state: NotificationState.Unread })
   }
 
-  return { namespace, notifications, addNotification, notificationsByNamespace }
+  function getNotificationsByNamespace(namespace: NotificationNamespace) {
+    return notifications.value.filter((n) => {
+      return n.namespace === namespace
+    })
+  }
+
+  return { namespace, notifications, addNotification, getNotificationsByNamespace }
 })
