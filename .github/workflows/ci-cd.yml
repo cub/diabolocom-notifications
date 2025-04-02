@@ -23,13 +23,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build SPA application
+        run: |
+          npm run setup:spa
+          npm run build
+        env:
+          CI: true
+
       - name: Install Playwright
         run: npx playwright install --with-deps
 
       - name: Run E2E tests
         run: npm run test:e2e
+        env:
+          CI: true
 
-      - name: Build application
+      - name: Build Web Components
         run: |
           npm run setup:ce
           npm run build
