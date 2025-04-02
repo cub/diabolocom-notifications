@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
+    "setup:ce": "node -e 'const fs=require(\"fs\"); fs.cpSync(path.resolve(\"./index.ce.html\"), path.resolve(\"./index.html\"), {force:true});'",
+    "setup:spa": "node -e 'const fs=require(\"fs\"); fs.cpSync(path.resolve(\"./index.spa.html\"), path.resolve(\"./index.html\"), {force:true});'",
     "preview": "vite preview",
     "test:e2e": "playwright test",
     "build-only": "vite build",

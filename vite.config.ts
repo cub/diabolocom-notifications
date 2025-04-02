@@ -24,4 +24,18 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        format: 'es',
+        manualChunks: {
+          'vendor-vue': ['vue'],
+          'vendor-pinia': ['pinia'],
+          'notifications-widget-unread': ['@/components/notifications-widget-unread.vue'],
+          'notifications-form-add': ['@/components/notifications-form-add.vue'],
+          'notifications-list-manage': ['@/components/notifications-list-manage.vue'],
+        },
+      },
+    },
+  },
 })
