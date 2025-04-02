@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test('View and manage notifications', async ({ page }) => {
-  await page.goto('http://localhost:5173/')
+  await page.goto('/')
   // check widget unread
   await expect(page.getByRole('main')).toContainText('Notifications unread 0')
   // check notifications page
